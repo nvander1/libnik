@@ -1,4 +1,4 @@
-## Buildling
+## Building
 
 First, get the source.
 
