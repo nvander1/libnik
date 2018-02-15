@@ -1,14 +1,14 @@
 #ifndef NIK_ERROR_HPP
 #define NIK_ERROR_HPP
 
-#include <functional>
 #include <system_error>
+#include <tuple>
 
 namespace nik::posix {
 
 template <typename R, typename... Args> class wrapper {
 public:
-  wrapper(R failure, std::function<R(Args...)> function)
+  wrapper(R failure, R (*function)(Args...))
       : d_function{std::move(function)}, d_failure{failure} {}
 
   R operator()(Args... args) {
@@ -23,9 +23,12 @@ public:
   }
 
 private:
-  std::function<R(Args...)> d_function;
+  R (*d_function)(Args...);
   R d_failure;
 };
+
+template <typename R, typename... Args>
+wrapper(R, R(Args...))->wrapper<R, Args...>;
 
 } // namespace nik::posix
 
