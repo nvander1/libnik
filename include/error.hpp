@@ -2,33 +2,22 @@
 #define NIK_ERROR_HPP
 
 #include <system_error>
-#include <tuple>
 
 namespace nik::posix {
 
-template <typename R, typename... Args> class wrapper {
-public:
-  wrapper(R failure, R (*function)(Args...))
-      : d_function{std::move(function)}, d_failure{failure} {}
+template <typename F, F *function>
+struct syscall_except {
+  template <typename... Args>
+  auto operator()(Args... args) {
+    auto ret = function(args...);
 
-  R operator()(Args... args) {
-    auto arguments = std::make_tuple(args...);
-
-    R ret = d_function(args...);
-    if (d_failure == ret) {
+    if (static_cast<decltype(function(args...))>(-1) == ret) {
       throw std::system_error(errno, std::system_category());
     }
 
     return ret;
   }
-
-private:
-  R (*d_function)(Args...);
-  R d_failure;
 };
-
-template <typename R, typename... Args>
-wrapper(R, R(Args...))->wrapper<R, Args...>;
 
 } // namespace nik::posix
 

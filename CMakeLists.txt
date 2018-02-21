@@ -5,6 +5,7 @@ include(GNUInstallDirs)
 
 add_library(nik INTERFACE)
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_COMPILER clang++)
 
 target_compile_options(nik INTERFACE
     -Werror -Wall -Wextra -Wpedantic
