@@ -68,3 +68,22 @@ Usage:
             // here error.code().value() should equal ENOENT
         }
     }
+
+
+### \<\< Operator for Sequence Containers
+Helpful for debugging and printing out elements of a sequence or a std::array.
+
+Usage:
+
+    #include <nik/stream.hpp>
+    #include <iostream>
+    #include <vector>
+
+    using nik::operator<<;
+
+    int main() {
+        std::vector vector{1, 2, 3, 4, 5};
+
+        std::cout << vector << std::endl;
+        // prints out [1, 2, 3, 4, 5]
+    }
