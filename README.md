@@ -1,3 +1,10 @@
+## Dependencies
+
+   - cmake >= 3.10.2
+   - clang >= 5.0.1
+
+   Only tested on Linux.
+
 ## Building
 
 First, get the source.
