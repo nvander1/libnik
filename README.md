@@ -38,3 +38,26 @@ Usage:
         std::cout << "Got " << args.size() << " arguments" << std::endl;
         std::cout << args[1] << args[2] << std::endl;
     }
+
+### C++ Exceptions for Linux system calls
+Might not be a great idea since you still have to check error code.
+
+Perhaps I could define one exception per ERRNO value and you could
+catch those exceptions separately.
+
+Anyways, here's an example.
+
+Usage:
+
+    #include <nik/error.hpp>
+    #include <unistd.h>
+
+    int main() {
+        nik::syscall_except<decltype(close), close> wrapped_close{};
+
+        try {
+            wrapped_close(-500);
+        } catch (std::system_error &error) {
+            // here error.code().value() should equal ENOENT
+        }
+    }

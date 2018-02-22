@@ -3,7 +3,7 @@
 
 #include <system_error>
 
-namespace nik::posix {
+namespace nik {
 
 template <typename F, F *function>
 struct syscall_except {
@@ -19,6 +19,6 @@ struct syscall_except {
   }
 };
 
-} // namespace nik::posix
+} // namespace nik
 
 #endif // NIK_ERROR_HPP

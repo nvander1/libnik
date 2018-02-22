@@ -6,8 +6,8 @@
 #include <unistd.h>
 
 int main() {
-  nik::posix::syscall_except<decltype(open), open> wrapped_open{};
-  nik::posix::syscall_except<decltype(close), close> wrapped_close{};
+  nik::syscall_except<decltype(open), open> wrapped_open{};
+  nik::syscall_except<decltype(close), close> wrapped_close{};
 
   try {
     wrapped_close(-500);
