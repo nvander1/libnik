@@ -2,6 +2,12 @@ cmake_minimum_required(VERSION 3.9.2 FATAL_ERROR)
 project(nik LANGUAGES CXX)
 
 include(GNUInstallDirs)
+include(gtest.cmake)
+include(GoogleTest)
+
+find_package(Threads)
+target_link_libraries(gtest ${CMAKE_THREAD_LIBS_INIT})
+
 
 add_library(nik INTERFACE)
 set(CMAKE_CXX_STANDARD 17)

@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.9.2 FATAL_ERROR)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../include)
 
-find_package(GTest)
-include(GoogleTest)
-
 # usage: new_test(name [args...])
 function(new_test name)
     add_executable(${name} ${name}.cpp)
@@ -13,7 +10,7 @@ endfunction(new_test)
 # usage: new_gtest(name [args...])
 function(new_gtest name)
     add_executable(${name} ${name}.cpp)
-    target_link_libraries(${name} GTest::GTest)
+    target_link_libraries(${name} gtest)
     if(${ARGC} EQUAL 1)
     gtest_discover_tests(${name})
     else()
