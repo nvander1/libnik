@@ -1,12 +1,27 @@
 cmake_minimum_required(VERSION 3.10.2 FATAL_ERROR)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../include)
 
+find_package(GTest)
+include(GoogleTest)
 
-add_executable(main_macro_test main_macro_test.cpp)
-add_test(main_macro_test main_macro_test "Hello," " World!")
+# usage: new_test(name [args...])
+function(new_test name)
+    add_executable(${name} ${name}.cpp)
+    add_test(${name} ${name} ${ARGN})
+endfunction(new_test)
 
-add_executable(basic_posix_wrapper_test basic_posix_wrapper_test.cpp)
-add_test(basic_posix_wrapper_test basic_posix_wrapper_test "Hello," " World!")
+# usage: new_gtest(name [args...])
+function(new_gtest name)
+    add_executable(${name} ${name}.cpp)
+    target_link_libraries(${name} GTest::GTest)
+    if(${ARGC} EQUAL 1)
+    gtest_discover_tests(${name})
+    else()
+    gtest_discover_tests(${name} EXTRA_ARGS ${ARGN})
+    endif()
+endfunction(new_gtest)
 
-add_executable(sequence_stream_test sequence_stream_test.cpp)
-add_test(sequence_stream_test sequence_stream_test)
+
+new_test(main_macro_test "Hello," " World!")
+new_gtest(syscall_except_tests)
+new_gtest(sequence_stream_tests)
