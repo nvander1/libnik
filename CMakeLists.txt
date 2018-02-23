@@ -4,7 +4,6 @@ project(nik LANGUAGES CXX)
 include(GNUInstallDirs)
 
 add_library(nik INTERFACE)
-set(CMAKE_CXX_COMPILER clang++)
 set(CMAKE_CXX_STANDARD 17)
 
 target_compile_options(nik INTERFACE

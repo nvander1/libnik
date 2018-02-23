@@ -8,7 +8,17 @@
 #include <unistd.h>
 
 TEST(syscall_except, open) {
+
+#ifdef __GNUG__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wignored-attributes"
+#endif
+
   nik::syscall_except<decltype(open), open> wrapped_open{};
+
+#ifdef __GNUG__
+#pragma GCC diagnostic pop
+#endif
 
   try {
     wrapped_open("THIS FILE DOESN'T EXIST", O_RDONLY);
