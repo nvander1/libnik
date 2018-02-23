@@ -1,7 +1,12 @@
 language: cpp
 
-install:
-    - sudo apt-get install libgtest-dev
+addons:
+    apt:
+        sources: ['ubuntu-toolchain-r-test']
+
+before_install:
+    - sudo apt-get -qq update
+    - sudo apt-get install -y libgtest-dev
 
 compiler:
     - gcc
