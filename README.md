@@ -88,3 +88,25 @@ Usage:
         std::cout << vector << std::endl;
         // prints out [1, 2, 3, 4, 5]
     }
+
+
+### Observer Ptr
+As specified [here.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4336.html#memory.observer.ptr)
+Also specified at [cppreference.](http://en.cppreference.com/w/cpp/experimental/observer_ptr)
+Used to express intent that something is a non-owning pointer.
+
+Usage:
+
+    #include <nik/memory.hpp>
+
+    int main() {
+
+    Object some_object{};
+
+    auto obj_ptr = nik::make_observer<Object>(&some_object);
+    obj_ptr->foo();
+
+    auto another_ptr = nik::observer_ptr<Object>(obj_ptr);
+    another_ptr->foo();
+
+    }
