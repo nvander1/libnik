@@ -10,7 +10,7 @@ addons:
             - clang-5.0
 
 compiler:
-    - gcc
+    - g++-7
     - clang
 
 before_script:
