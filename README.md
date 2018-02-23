@@ -2,7 +2,6 @@
 
    - cmake >= 3.9.2
    - clang >= 5.0.1 or gcc >= 7.3.0
-   - gtest >= 1.8.0 (for running tests)
 
    Only tested on Linux.
 
