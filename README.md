@@ -16,7 +16,14 @@ Then, generate the build files.
 
     cd nik
     mkdir build && cd build
+
+Build with gcc (default),
+
     cmake ..
+
+or build with clang
+
+    cmake -DCMAKE_CXX_COMPILER=/usr/bin/clang++ ..
     
 
 Optionally, run the tests.
