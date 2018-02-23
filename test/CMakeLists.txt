@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.2 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.9.2 FATAL_ERROR)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../include)
 
 find_package(GTest)
