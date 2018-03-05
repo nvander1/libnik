@@ -59,4 +59,18 @@ TEST(string, split) {
 
   auto tokens_empty = string.split(nullptr, 0);
   EXPECT_EQ(0, tokens_empty.size());
+
+  auto csv = nik::string("a,b,c,d");
+  auto tokens_sep = csv.split(',');
+  EXPECT_EQ(4, tokens_sep.size());
+  EXPECT_TRUE(tokens_sep[0] == nik::string("a"));
+  EXPECT_TRUE(tokens_sep[1] == nik::string("b"));
+  EXPECT_TRUE(tokens_sep[2] == nik::string("c"));
+  EXPECT_TRUE(tokens_sep[3] == nik::string("d"));
+
+  auto tokens_sep_limited = csv.split(',', 2);
+  EXPECT_EQ(3, tokens_sep_limited.size());
+  EXPECT_TRUE(tokens_sep[0] == nik::string("a"));
+  EXPECT_TRUE(tokens_sep[1] == nik::string("b"));
+  EXPECT_TRUE(tokens_sep[2] == nik::string("c"));
 }

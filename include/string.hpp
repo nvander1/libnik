@@ -14,6 +14,7 @@ class string : public std::string {
 
 public:
   using std::string::string;
+  string(std::string other) : std::string{other} {}
   string capitalize() {
     auto copied = *this;
     auto& front_char = copied.front();
@@ -37,12 +38,37 @@ public:
       end += size();
     auto searched_portion = substr(start, end - start);
     size_t seen = 0;
-    size_t pos = searched_portion.find(sub);
-    while (pos != std::string::npos) {
+    size_t pos = -1;
+    while ((pos = searched_portion.find(sub, pos + 1)) != std::string::npos) {
       seen++;
-      pos = searched_portion.find(sub, pos + 1);
     }
     return seen;
+  }
+
+  std::vector<nik::string> split(char sep, int maxsplit = -1) {
+    auto tokens = std::vector<nik::string>();
+    if (maxsplit == 0)
+      return tokens;
+
+    size_t prev = 0;
+    size_t next = 0;
+
+    auto accumulate = [&](auto pred) {
+      while (pred() && ((next = find(sep, prev)) != string::npos)) {
+        tokens.push_back(substr(prev, next - prev));
+        prev = next + 1;
+      }
+      tokens.push_back(substr(prev));
+    };
+
+    if (maxsplit > 0) {
+      size_t count = 0;
+      accumulate([&]() { return count++ < maxsplit; });
+    } else {
+      accumulate([&]() { return true; });
+    }
+
+    return tokens;
   }
 
   std::vector<nik::string> split(nullptr_t sep = nullptr, int maxsplit = -1) {
