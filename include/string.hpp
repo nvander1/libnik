@@ -27,6 +27,19 @@ public:
     return pad(left, marg - left, fillchar);
   }
 
+  size_t count(std::string sub, size_t start = 0, size_t end = 0) {
+    if (end == 0)
+      end += size();
+    auto searched_portion = substr(start, end - start);
+    size_t seen = 0;
+    size_t pos = searched_portion.find(sub);
+    while (pos != std::string::npos) {
+      seen++;
+      pos = searched_portion.find(sub, pos + 1);
+    }
+    return seen;
+  }
+
 private:
   // https://github.com/python/cpython/blob/master/Objects/stringlib/transmogrify.h#L93-L120
   string pad(size_t left, size_t right, char fill) {

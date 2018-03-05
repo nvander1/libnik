@@ -33,3 +33,8 @@ TEST(string, center) {
 
   ASSERT_TRUE(nik::string{"a"}.center(5, '_') == nik::string{"__a__"});
 }
+
+TEST(string, count) {
+  ASSERT_EQ(5, nik::string{"aaaaa"}.count(nik::string{"a"}));
+  ASSERT_EQ(2, nik::string{"hello hello"}.count(std::string{"hello"}));
+}
