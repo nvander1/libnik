@@ -40,3 +40,23 @@ TEST(string, count) {
   ASSERT_EQ(1, nik::string{"hello hello"}.count(std::string{"hello"}, 1));
   ASSERT_EQ(1, nik::string{"hello hello"}.count(std::string{"hello"}, 0, 6));
 }
+
+TEST(string, split) {
+  auto string = nik::string("a\nb\tc  d\t e  ");
+
+  auto tokens = string.split();
+  EXPECT_EQ(5, tokens.size());
+  EXPECT_TRUE(tokens[0] == nik::string("a"));
+  EXPECT_TRUE(tokens[1] == nik::string("b"));
+  EXPECT_TRUE(tokens[2] == nik::string("c"));
+  EXPECT_TRUE(tokens[3] == nik::string("d"));
+  EXPECT_TRUE(tokens[4] == nik::string("e"));
+
+  auto tokens2 = string.split(nullptr, 2);
+  EXPECT_EQ(2, tokens2.size());
+  EXPECT_TRUE(tokens[0] == nik::string("a"));
+  EXPECT_TRUE(tokens[1] == nik::string("b"));
+
+  auto tokens_empty = string.split(nullptr, 0);
+  EXPECT_EQ(0, tokens_empty.size());
+}

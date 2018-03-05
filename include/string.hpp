@@ -1,12 +1,17 @@
 #ifndef NIK_STRING_HPP
 #define NIK_STRING_HPP
 
+#include <algorithm>
 #include <cctype>
+#include <iterator>
+#include <sstream>
 #include <string>
+#include <vector>
 
 namespace nik {
 
 class string : public std::string {
+
 public:
   using std::string::string;
   string capitalize() {
@@ -38,6 +43,22 @@ public:
       pos = searched_portion.find(sub, pos + 1);
     }
     return seen;
+  }
+
+  std::vector<nik::string> split(nullptr_t sep = nullptr, int maxsplit = -1) {
+    auto tokens = std::vector<nik::string>();
+    if (maxsplit == 0)
+      return tokens;
+
+    auto iss = std::istringstream(*this);
+    using Iterator = std::istream_iterator<nik::string>;
+
+    if (maxsplit > 0)
+      std::copy_n(Iterator(iss), maxsplit, std::back_inserter(tokens));
+    else
+      std::copy(Iterator(iss), Iterator(), std::back_inserter(tokens));
+
+    return tokens;
   }
 
 private:
