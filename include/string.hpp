@@ -39,7 +39,7 @@ public:
     auto searched_portion = substr(start, end - start);
     size_t seen = 0;
     size_t pos = -1;
-    while ((pos = searched_portion.find(sub, pos + 1)) != std::string::npos) {
+    while ((pos = searched_portion.find(sub, pos + 1)) != string::npos) {
       seen++;
     }
     return seen;
