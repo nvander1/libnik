@@ -118,7 +118,7 @@ Usage:
     }
 
 
-### Handy strings
+### Python style strings
 A subclass of [std::string](http://en.cppreference.com/w/cpp/string/basic_string<Paste>)
 that implements some Python string [methods](https://docs.python.org/3/library/stdtypes.html#string-methods).
 
