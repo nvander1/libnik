@@ -122,6 +122,9 @@ Usage:
 A subclass of [std::string](http://en.cppreference.com/w/cpp/string/basic_string<Paste>)
 that implements some Python string [methods](https://docs.python.org/3/library/stdtypes.html#string-methods).
 
+Since `std::string` doesn't have a virtual destructor, don't try to delete a
+`nik::string` through a pointer to `std::string`!
+
 Methods implemented so far:
 
 * [capitalize](https://docs.python.org/3/library/stdtypes.html#str.capitalize)
