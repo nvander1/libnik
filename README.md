@@ -124,4 +124,4 @@ that implements some Python string [methods](https://docs.python.org/3/library/s
 
 Methods implemented so far:
 
-	- [capitalize](https://docs.python.org/3/library/stdtypes.html#str.capitalize)
+* [capitalize](https://docs.python.org/3/library/stdtypes.html#str.capitalize)
