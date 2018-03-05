@@ -2,8 +2,34 @@
 
 #include <gtest/gtest.h>
 
+#include <vector>
+
 TEST(string, capitalize) {
   auto s = nik::string{"hello"};
 
   ASSERT_TRUE(s.capitalize() == nik::string{"Hello"});
+}
+
+TEST(string, center) {
+  std::vector<nik::string> inputs{"a", "ab", "abc", "abcd", "abcde"};
+
+  std::vector<std::vector<nik::string>> outputs{
+      {"a", "a", "a ", " a ", " a  ", "  a  ", "  a   ", "   a   ", "   a    ",
+       "    a    "},
+      {"ab", "ab", "ab", " ab", " ab ", "  ab ", "  ab  ", "   ab  ",
+       "   ab   ", "    ab   "},
+      {"abc", "abc", "abc", "abc", "abc ", " abc ", " abc  ", "  abc  ",
+       "  abc   ", "   abc   "},
+      {"abcd", "abcd", "abcd", "abcd", "abcd", " abcd", " abcd ", "  abcd ",
+       "  abcd  ", "   abcd  "},
+      {"abcde", "abcde", "abcde", "abcde", "abcde", "abcde", "abcde ",
+       " abcde ", " abcde  ", "  abcde  "}};
+
+  for (auto i = 0; i < inputs.size(); ++i) {
+    for (size_t width = 0; width < 10; ++width) {
+      ASSERT_TRUE(inputs[i].center(width) == outputs[i][width]);
+    }
+  }
+
+  ASSERT_TRUE(nik::string{"a"}.center(5, '_') == nik::string{"__a__"});
 }
