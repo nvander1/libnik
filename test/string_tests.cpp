@@ -37,4 +37,6 @@ TEST(string, center) {
 TEST(string, count) {
   ASSERT_EQ(5, nik::string{"aaaaa"}.count(nik::string{"a"}));
   ASSERT_EQ(2, nik::string{"hello hello"}.count(std::string{"hello"}));
+  ASSERT_EQ(1, nik::string{"hello hello"}.count(std::string{"hello"}, 1));
+  ASSERT_EQ(1, nik::string{"hello hello"}.count(std::string{"hello"}, 0, 6));
 }
