@@ -2,22 +2,22 @@
     "docs": [
         {
             "location": "/",
-            "text": "Welcome to Nik!\n\n\n\n\nOverview\n\n\nNik is my little C++ library. Its got some doodads and thingamajigs.\n\n\nBuilding\n\n\nMake sure you've got these before you start building.\n\n\n\n\ngit\n\n\ncmake >= 3.10.2\n\n\ngcc >= 7.3.0 or clang >= 5.0.1\n\n\n\n\nNext, get the source.\n\n\ngit clone https://www.github.com/nvander1/nik.git\n\n\n\n\n\nThen, generate the build files.\n\n\ncd nik\nmkdir build && cd build\n\n\n\n\n\nBuild with gcc (default),\n\n\ncmake ..\n\n\n\n\n\nor build with clang\n\n\ncmake -DCMAKE_CXX_COMPILER=/usr/bin/clang++ ..\n\n\n\n\n\nOptionally, run the tests.\n\n\nmake && make test\n\n\n\n\n\nFinally, install it.\n\n\nsudo make install\n\n\n\n\n\nIf you need to, you can uninstall.\n\n\nsudo make uninstall",
+            "text": "Welcome to Libnik!\n\n\n\n\nOverview\n\n\nLibnik is my little C++ library. Its got some doodads and thingamajigs.\n\n\nBuilding\n\n\nMake sure you've got these before you start building.\n\n\n\n\ngit\n\n\ncmake >= 3.10.2\n\n\ngcc >= 7.3.0 or clang >= 5.0.1\n\n\n\n\nNext, get the source.\n\n\ngit clone https://www.github.com/nvander1/libnik.git\n\n\n\n\n\nThen, generate the build files.\n\n\ncd libnik\nmkdir build && cd build\n\n\n\n\n\nBuild with gcc (default),\n\n\ncmake ..\n\n\n\n\n\nor build with clang\n\n\ncmake -DCMAKE_CXX_COMPILER=/usr/bin/clang++ ..\n\n\n\n\n\nOptionally, run the tests.\n\n\nmake && make test\n\n\n\n\n\nFinally, install it.\n\n\nsudo make install\n\n\n\n\n\nIf you need to, you can uninstall.\n\n\nsudo make uninstall",
             "title": "Welcome"
         },
         {
-            "location": "/#welcome-to-nik",
+            "location": "/#welcome-to-libnik",
             "text": "",
-            "title": "Welcome to Nik!"
+            "title": "Welcome to Libnik!"
         },
         {
             "location": "/#overview",
-            "text": "Nik is my little C++ library. Its got some doodads and thingamajigs.",
+            "text": "Libnik is my little C++ library. Its got some doodads and thingamajigs.",
             "title": "Overview"
         },
         {
             "location": "/#building",
-            "text": "Make sure you've got these before you start building.   git  cmake >= 3.10.2  gcc >= 7.3.0 or clang >= 5.0.1   Next, get the source.  git clone https://www.github.com/nvander1/nik.git  Then, generate the build files.  cd nik\nmkdir build && cd build  Build with gcc (default),  cmake ..  or build with clang  cmake -DCMAKE_CXX_COMPILER=/usr/bin/clang++ ..  Optionally, run the tests.  make && make test  Finally, install it.  sudo make install  If you need to, you can uninstall.  sudo make uninstall",
+            "text": "Make sure you've got these before you start building.   git  cmake >= 3.10.2  gcc >= 7.3.0 or clang >= 5.0.1   Next, get the source.  git clone https://www.github.com/nvander1/libnik.git  Then, generate the build files.  cd libnik\nmkdir build && cd build  Build with gcc (default),  cmake ..  or build with clang  cmake -DCMAKE_CXX_COMPILER=/usr/bin/clang++ ..  Optionally, run the tests.  make && make test  Finally, install it.  sudo make install  If you need to, you can uninstall.  sudo make uninstall",
             "title": "Building"
         },
         {
