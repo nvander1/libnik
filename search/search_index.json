@@ -1,0 +1,169 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Welcome to Nik!\n\n\n\n\nOverview\n\n\nNik is my little C++ library. Its got some doodads and thingamajigs.\n\n\nBuilding\n\n\nMake sure you've got these before you start building.\n\n\n\n\ngit\n\n\ncmake >= 3.10.2\n\n\ngcc >= 7.3.0 or clang >= 5.0.1\n\n\n\n\nNext, get the source.\n\n\ngit clone https://www.github.com/nvander1/nik.git\n\n\n\n\n\nThen, generate the build files.\n\n\ncd nik\nmkdir build && cd build\n\n\n\n\n\nBuild with gcc (default),\n\n\ncmake ..\n\n\n\n\n\nor build with clang\n\n\ncmake -DCMAKE_CXX_COMPILER=/usr/bin/clang++ ..\n\n\n\n\n\nOptionally, run the tests.\n\n\nmake && make test\n\n\n\n\n\nFinally, install it.\n\n\nsudo make install\n\n\n\n\n\nIf you need to, you can uninstall.\n\n\nsudo make uninstall",
+            "title": "Welcome"
+        },
+        {
+            "location": "/#welcome-to-nik",
+            "text": "",
+            "title": "Welcome to Nik!"
+        },
+        {
+            "location": "/#overview",
+            "text": "Nik is my little C++ library. Its got some doodads and thingamajigs.",
+            "title": "Overview"
+        },
+        {
+            "location": "/#building",
+            "text": "Make sure you've got these before you start building.   git  cmake >= 3.10.2  gcc >= 7.3.0 or clang >= 5.0.1   Next, get the source.  git clone https://www.github.com/nvander1/nik.git  Then, generate the build files.  cd nik\nmkdir build && cd build  Build with gcc (default),  cmake ..  or build with clang  cmake -DCMAKE_CXX_COMPILER=/usr/bin/clang++ ..  Optionally, run the tests.  make && make test  Finally, install it.  sudo make install  If you need to, you can uninstall.  sudo make uninstall",
+            "title": "Building"
+        },
+        {
+            "location": "/strings/overview/",
+            "text": "Strings library\n\n\nThe Nik strings library provides user-friendly functionality for manipulating\nstrings. All classes and functions referenced without an explicit namespace\nare members of \nnamespace nik\n.\n\n\nClasses\n\n\n\n\n\n\n\n\n\n\nName\n\n\nBrief description\n\n\n\n\n\n\n\n\n\n\nstring\n\n\nA subclass of \nstd::string\n providing functionality similar to Python strings.\n\n\n\n\n\n\n\n\nstring\n\n\n\n\nMember functions\n\n\n\n\n\n\n\n\nName\n\n\nReturn type\n\n\nBrief Description\n\n\n\n\n\n\n\n\n\n\ncapitalize\n\n\nstring\n\n\nReturns a copy of the string with its first character capitalized.\n\n\n\n\n\n\ncenter\n\n\nstring\n\n\nReturns a copy of the string centered in a buffer.\n\n\n\n\n\n\ncount\n\n\nsize_t\n\n\nCounts the number of non-overlapping occurances of a substring.\n\n\n\n\n\n\nsplit\n\n\nstd::vector<string>\n\n\nSplits a string by a delimeter into tokens.",
+            "title": "Overview"
+        },
+        {
+            "location": "/strings/overview/#strings-library",
+            "text": "The Nik strings library provides user-friendly functionality for manipulating\nstrings. All classes and functions referenced without an explicit namespace\nare members of  namespace nik .",
+            "title": "Strings library"
+        },
+        {
+            "location": "/strings/overview/#classes",
+            "text": "Name  Brief description      string  A subclass of  std::string  providing functionality similar to Python strings.",
+            "title": "Classes"
+        },
+        {
+            "location": "/strings/overview/#string",
+            "text": "",
+            "title": "string"
+        },
+        {
+            "location": "/strings/overview/#member-functions",
+            "text": "Name  Return type  Brief Description      capitalize  string  Returns a copy of the string with its first character capitalized.    center  string  Returns a copy of the string centered in a buffer.    count  size_t  Counts the number of non-overlapping occurances of a substring.    split  std::vector<string>  Splits a string by a delimeter into tokens.",
+            "title": "Member functions"
+        },
+        {
+            "location": "/strings/string/member_funcs/capitalize/",
+            "text": "nik::string::capitalize\n\n\n\n\nSignatures\n\n\n\n\nstring capitalize()\n\n\n\n\nParameters\n\n\n(none)\n\n\nReturns\n\n\nReturns a copy of the string with its first character capitalized.\nThe behavior is undefined if \nempty() == true\n.\n\n\nExample\n\n\n#include\n \n<nik/string.hpp>\n\n\n#inlcude <iostream>\n\n\n\nint\n \nmain\n()\n \n{\n\n    \nauto\n \nhello\n \n=\n \nnik\n::\nstring\n(\n\"hello\"\n);\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncapitalize\n()\n \n<<\n \nstd\n::\nendl\n;\n \n// prints \"Hello\"\n\n\n}",
+            "title": "capitalize"
+        },
+        {
+            "location": "/strings/string/member_funcs/capitalize/#nikstringcapitalize",
+            "text": "",
+            "title": "nik::string::capitalize"
+        },
+        {
+            "location": "/strings/string/member_funcs/capitalize/#signatures",
+            "text": "string capitalize()",
+            "title": "Signatures"
+        },
+        {
+            "location": "/strings/string/member_funcs/capitalize/#parameters",
+            "text": "(none)",
+            "title": "Parameters"
+        },
+        {
+            "location": "/strings/string/member_funcs/capitalize/#returns",
+            "text": "Returns a copy of the string with its first character capitalized.\nThe behavior is undefined if  empty() == true .",
+            "title": "Returns"
+        },
+        {
+            "location": "/strings/string/member_funcs/capitalize/#example",
+            "text": "#include   <nik/string.hpp>  #inlcude <iostream>  int   main ()   { \n     auto   hello   =   nik :: string ( \"hello\" ); \n     std :: cout   <<   hello . capitalize ()   <<   std :: endl ;   // prints \"Hello\"  }",
+            "title": "Example"
+        },
+        {
+            "location": "/strings/string/member_funcs/center/",
+            "text": "nik::string::center\n\n\nSignatures\n\n\n\n\nstring center(size_t width, char fillchar=' ')\n\n\n\n\nParameters\n\n\n\n\nwidth\n : The desired buffer width.\n\n\nfillchar\n : The character to use for padding.\n\n\n\n\nReturns\n\n\nReturns a copy of the string centered in a string of length \nwidth\n.\nPadding is done with \nfillchar\n. If \nwidth\n is less than the length of\nthe string, a copy of the string is returned.\n\n\nExample\n\n\n#include\n \n<nik/string.hpp>\n\n\n#inlcude <iostream>\n\n\n\nint\n \nmain\n()\n \n{\n\n    \nauto\n \nhello\n \n=\n \nnik\n::\nstring\n(\n\"hello\"\n);\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncenter\n(\n9\n)\n \n<<\n \nstd\n::\nendl\n;\n      \n// prints \"  hello  \"\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncenter\n(\n9\n,\n \n'-'\n)\n \n<<\n \nstd\n::\nendl\n;\n \n// prints \"--hello--\"\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncenter\n(\n1\n)\n \n<<\n \nstd\n::\nendl\n;\n      \n// prints \"hello\"\n\n\n}",
+            "title": "center"
+        },
+        {
+            "location": "/strings/string/member_funcs/center/#nikstringcenter",
+            "text": "",
+            "title": "nik::string::center"
+        },
+        {
+            "location": "/strings/string/member_funcs/center/#signatures",
+            "text": "string center(size_t width, char fillchar=' ')",
+            "title": "Signatures"
+        },
+        {
+            "location": "/strings/string/member_funcs/center/#parameters",
+            "text": "width  : The desired buffer width.  fillchar  : The character to use for padding.",
+            "title": "Parameters"
+        },
+        {
+            "location": "/strings/string/member_funcs/center/#returns",
+            "text": "Returns a copy of the string centered in a string of length  width .\nPadding is done with  fillchar . If  width  is less than the length of\nthe string, a copy of the string is returned.",
+            "title": "Returns"
+        },
+        {
+            "location": "/strings/string/member_funcs/center/#example",
+            "text": "#include   <nik/string.hpp>  #inlcude <iostream>  int   main ()   { \n     auto   hello   =   nik :: string ( \"hello\" ); \n     std :: cout   <<   hello . center ( 9 )   <<   std :: endl ;        // prints \"  hello  \" \n     std :: cout   <<   hello . center ( 9 ,   '-' )   <<   std :: endl ;   // prints \"--hello--\" \n     std :: cout   <<   hello . center ( 1 )   <<   std :: endl ;        // prints \"hello\"  }",
+            "title": "Example"
+        },
+        {
+            "location": "/strings/string/member_funcs/count/",
+            "text": "nik::string::count\n\n\nSignatures\n\n\n\n\nsize_t count(std::string sub, size_t start = 0, size_t end = 0)\n\n\n\n\nParameters\n\n\n\n\nsub\n : The substring for which to look.\n\n\nstart\n : The index at which to start searching.\n\n\nend\n : The index at which to end searching.\n\n\n\n\nReturns\n\n\nA count of the number of non-overlapping occurences of \nsub\n in the\nrange [\nstart\n : \nend\n].\n\n\nExample\n\n\n#include\n \n<nik/string.hpp>\n\n\n#inlcude <iostream>\n\n\n\nint\n \nmain\n()\n \n{\n\n    \nauto\n \nhello\n \n=\n \nnik\n::\nstring\n(\n\"hello hello hello\"\n);\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncount\n(\n\"hello\"\n)\n \n<<\n \nstd\n::\nendl\n;\n        \n// prints 3\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncount\n(\n\"hello\"\n,\n \n5\n)\n \n<<\n \nstd\n::\nendl\n;\n     \n// prints 2\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncount\n(\n\"hello\"\n,\n \n5\n,\n \n12\n)\n \n<<\n \nstd\n::\nendl\n;\n \n// prints 1\n\n\n}",
+            "title": "count"
+        },
+        {
+            "location": "/strings/string/member_funcs/count/#nikstringcount",
+            "text": "",
+            "title": "nik::string::count"
+        },
+        {
+            "location": "/strings/string/member_funcs/count/#signatures",
+            "text": "size_t count(std::string sub, size_t start = 0, size_t end = 0)",
+            "title": "Signatures"
+        },
+        {
+            "location": "/strings/string/member_funcs/count/#parameters",
+            "text": "sub  : The substring for which to look.  start  : The index at which to start searching.  end  : The index at which to end searching.",
+            "title": "Parameters"
+        },
+        {
+            "location": "/strings/string/member_funcs/count/#returns",
+            "text": "A count of the number of non-overlapping occurences of  sub  in the\nrange [ start  :  end ].",
+            "title": "Returns"
+        },
+        {
+            "location": "/strings/string/member_funcs/count/#example",
+            "text": "#include   <nik/string.hpp>  #inlcude <iostream>  int   main ()   { \n     auto   hello   =   nik :: string ( \"hello hello hello\" ); \n     std :: cout   <<   hello . count ( \"hello\" )   <<   std :: endl ;          // prints 3 \n     std :: cout   <<   hello . count ( \"hello\" ,   5 )   <<   std :: endl ;       // prints 2 \n     std :: cout   <<   hello . count ( \"hello\" ,   5 ,   12 )   <<   std :: endl ;   // prints 1  }",
+            "title": "Example"
+        },
+        {
+            "location": "/strings/string/member_funcs/split/",
+            "text": "nik::string::split\n\n\nSignatures\n\n\n\n\nstd::vector<string> split(size_t maxsplit = SIZE_MAX)\n\n\nstd::vector<string> split(std::string sep)\n\n\nstd::vector<string> split(std::string sep, size_t maxsplit)\n\n\n\n\nParameters\n\n\n\n\nsep\n : The delimeter to split on.\n\n\nmaxsplit\n: The maximum number of splits to make.\n\n\n\n\nReturns\n\n\n\n\nTokens split by whitespace. Limited to \nmaxsplit\n + 1 tokens if specified.\n\n\nTokens split by \nsep\n.\n\n\nTokens split by \nsep\n. Limited to \nmaxsplit\n + 1 tokens.\n\n\n\n\nExample\n\n\n#include\n \n<nik/string.hpp>\n\n\n#include\n \n<cassert>\n\n\n#include\n \n<iostream>\n\n\n\nint\n \nmain\n()\n \n{\n\n    \n// splitting on a comma\n\n    \nauto\n \ncsv\n \n=\n \nnik\n::\nstring\n(\n\"a,b,c,d,e\"\n);\n\n\n    \nauto\n \ncsv_toks\n \n=\n \ncsv\n.\nsplit\n(\n\",\"\n);\n\n    \nassert\n(\ncsv_toks\n.\nsize\n()\n \n==\n \n5\n);\n\n\n    \nauto\n \ncsv_3toks\n \n=\n \ncsv\n.\nsplit\n(\n\",\"\n,\n \n2\n);\n\n    \nassert\n(\ncsv_3toks\n.\nsize\n()\n \n==\n \n3\n);\n\n\n    \n// splitting on whitespace\n\n    \nauto\n \ntext\n \n=\n \nnik\n::\nstring\n(\n\"a    \n\\t\n b \n\\t\\t\\t\n c\"\n);\n\n    \nassert\n(\ntext\n.\nsplit\n().\nsize\n()\n \n==\n \n3\n);\n\n\n}",
+            "title": "split"
+        },
+        {
+            "location": "/strings/string/member_funcs/split/#nikstringsplit",
+            "text": "",
+            "title": "nik::string::split"
+        },
+        {
+            "location": "/strings/string/member_funcs/split/#signatures",
+            "text": "std::vector<string> split(size_t maxsplit = SIZE_MAX)  std::vector<string> split(std::string sep)  std::vector<string> split(std::string sep, size_t maxsplit)",
+            "title": "Signatures"
+        },
+        {
+            "location": "/strings/string/member_funcs/split/#parameters",
+            "text": "sep  : The delimeter to split on.  maxsplit : The maximum number of splits to make.",
+            "title": "Parameters"
+        },
+        {
+            "location": "/strings/string/member_funcs/split/#returns",
+            "text": "Tokens split by whitespace. Limited to  maxsplit  + 1 tokens if specified.  Tokens split by  sep .  Tokens split by  sep . Limited to  maxsplit  + 1 tokens.",
+            "title": "Returns"
+        },
+        {
+            "location": "/strings/string/member_funcs/split/#example",
+            "text": "#include   <nik/string.hpp>  #include   <cassert>  #include   <iostream>  int   main ()   { \n     // splitting on a comma \n     auto   csv   =   nik :: string ( \"a,b,c,d,e\" ); \n\n     auto   csv_toks   =   csv . split ( \",\" ); \n     assert ( csv_toks . size ()   ==   5 ); \n\n     auto   csv_3toks   =   csv . split ( \",\" ,   2 ); \n     assert ( csv_3toks . size ()   ==   3 ); \n\n     // splitting on whitespace \n     auto   text   =   nik :: string ( \"a     \\t  b  \\t\\t\\t  c\" ); \n     assert ( text . split (). size ()   ==   3 );  }",
+            "title": "Example"
+        }
+    ]
+}
