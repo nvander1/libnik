@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <cctype>
+#include <cstdint>
 #include <iostream>
 #include <iterator>
 #include <sstream>
@@ -18,7 +19,7 @@ public:
   string(std::string other) : std::string{other} {}
   string capitalize() {
     auto copied = *this;
-    auto& front_char = copied.front();
+    auto &front_char = copied.front();
     front_char = std::toupper(front_char);
     return copied;
   }
@@ -46,11 +47,8 @@ public:
     return seen;
   }
 
-  std::vector<nik::string> split(std::string sep, int maxsplit = -1) {
+  std::vector<nik::string> split(std::string sep) {
     auto tokens = std::vector<nik::string>();
-    if (maxsplit == 0)
-      return tokens;
-
     size_t prev = 0;
     size_t next = 0;
 
@@ -63,11 +61,26 @@ public:
     return tokens;
   }
 
-  std::vector<nik::string> split(char sep, int maxsplit = -1) {
-    return split(std::string{sep}, maxsplit);
+  std::vector<nik::string> split(std::string sep, size_t maxsplit) {
+    auto tokens = std::vector<nik::string>();
+    if (maxsplit == 0)
+      return tokens;
+
+    size_t prev = 0;
+    size_t next = 0;
+
+    while ((next = find(sep, prev)) != string::npos) {
+      tokens.push_back(substr(prev, next - prev));
+      if (tokens.size() == maxsplit + 1)
+        return tokens;
+      prev = next + sep.size();
+    }
+    tokens.push_back(substr(prev, next - prev));
+
+    return tokens;
   }
 
-  std::vector<nik::string> split(nullptr_t sep = nullptr, int maxsplit = -1) {
+  std::vector<nik::string> split(size_t maxsplit = SIZE_MAX) {
     auto tokens = std::vector<nik::string>();
     if (maxsplit == 0)
       return tokens;
@@ -75,10 +88,10 @@ public:
     auto iss = std::istringstream(*this);
     using Iterator = std::istream_iterator<nik::string>;
 
-    if (maxsplit > 0)
-      std::copy_n(Iterator(iss), maxsplit, std::back_inserter(tokens));
-    else
+    if (maxsplit == SIZE_MAX)
       std::copy(Iterator(iss), Iterator(), std::back_inserter(tokens));
+    else
+      std::copy_n(Iterator(iss), maxsplit, std::back_inserter(tokens));
 
     return tokens;
   }

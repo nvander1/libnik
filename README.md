@@ -130,4 +130,4 @@ Methods implemented so far:
 * [capitalize](https://docs.python.org/3/library/stdtypes.html#str.capitalize)
 * [center](https://docs.python.org/3/library/stdtypes.html#str.center)
 * [count](https://docs.python.org/3/library/stdtypes.html#str.count)
-* [split (partially)](https://docs.python.org/3/library/stdtypes.html#str.split)
+* [split](https://docs.python.org/3/library/stdtypes.html#str.split)
