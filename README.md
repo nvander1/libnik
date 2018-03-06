@@ -1,6 +1,6 @@
 ## Dependencies
 
-   - cmake >= 3.9.2
+   - cmake >= 3.10.2
    - clang >= 5.0.1 or gcc >= 7.3.0
 
    Only tested on Linux.
