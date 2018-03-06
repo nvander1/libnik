@@ -1,10 +1,10 @@
-# Welcome to Nik!
+# Welcome to Libnik!
 
 --------------------
 
 ## Overview
 
-Nik is my little C++ library. Its got some doodads and thingamajigs.
+Libnik is my little C++ library. Its got some doodads and thingamajigs.
 
 ## Building
 
@@ -16,11 +16,11 @@ Make sure you've got these before you start building.
 
 Next, get the source.
 
-    git clone https://www.github.com/nvander1/nik.git
+    git clone https://www.github.com/nvander1/libnik.git
 
 Then, generate the build files.
 
-    cd nik
+    cd libnik
     mkdir build && cd build
 
 Build with gcc (default),

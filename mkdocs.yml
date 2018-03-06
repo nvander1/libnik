@@ -1,4 +1,4 @@
-site_name: Nik
+site_name: Libnik
 pages:
     - Welcome: index.md
     - Strings:
