@@ -1,8 +1,8 @@
-# `nik::string::center`
+# `nik::basic_string::center`
 
 ## Signatures
 
-- `string center(size_t width, char fillchar=' ')`
+- `basic_string center(size_type width, CharT fillchar=' ')`
 
 ## Parameters
 

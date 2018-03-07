@@ -1,9 +1,9 @@
-# `nik::string::capitalize`
+# `nik::basic_string::capitalize`
 
 ---
 
 ## Signatures
-- `string capitalize()`
+- `basic_string capitalize()`
 
 ## Parameters
 (none)

@@ -1,9 +1,9 @@
-# `nik::string::split`
+# `nik::basic_string::split`
 
 ## Signatures
-1. `std::vector<string> split(size_t maxsplit = SIZE_MAX)`
-2. `std::vector<string> split(std::string sep)`
-3. `std::vector<string> split(std::string sep, size_t maxsplit)`
+1. `std::vector<basic_string> split(size_type maxsplit = SIZE_MAX)`
+2. `std::vector<basic_string> split(std_basic_string sep)`
+3. `std::vector<basic_string> split(std_basic_string sep, size_type maxsplit)`
 
 ## Parameters
 - **sep** : The delimeter to split on.

@@ -1,8 +1,8 @@
-# `nik::string::count`
+# `nik::basic_string::count`
 
 ## Signatures
 
-- `size_t count(std::string sub, size_t start = 0, size_t end = 0)`
+- `size_type count(std_basic_string sub, size_type start = 0, size_type end = 0)`
 
 ## Parameters
 

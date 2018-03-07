@@ -3,11 +3,13 @@ pages:
     - Welcome: index.md
     - Strings:
         - Overview: strings/overview.md
-        - class string:
-            - capitalize: strings/string/member_funcs/capitalize.md
-            - center: strings/string/member_funcs/center.md
-            - count : strings/string/member_funcs/count.md
-            - split : strings/string/member_funcs/split.md
+        - Class basic_string:
+            - Overview: strings/basic_string/overview.md
+            - Member functions:
+                - capitalize: strings/basic_string/member_funcs/capitalize.md
+                - center: strings/basic_string/member_funcs/center.md
+                - count : strings/basic_string/member_funcs/count.md
+                - split : strings/basic_string/member_funcs/split.md
 
 theme: material
 markdown_extensions:
