@@ -71,8 +71,8 @@ public:
     return seen;
   }
 
-  std::vector<std_basic_string> split(std_basic_string sep) {
-    auto tokens = std::vector<std_basic_string>();
+  std::vector<basic_string> split(std_basic_string sep) {
+    auto tokens = std::vector<basic_string>();
     size_type prev = 0;
     size_type next = 0;
 
@@ -85,9 +85,8 @@ public:
     return tokens;
   }
 
-  std::vector<std_basic_string> split(std_basic_string sep,
-                                      size_type maxsplit) {
-    auto tokens = std::vector<std_basic_string>();
+  std::vector<basic_string> split(std_basic_string sep, size_type maxsplit) {
+    auto tokens = std::vector<basic_string>();
     if (maxsplit == 0)
       return tokens;
 
@@ -105,8 +104,8 @@ public:
     return tokens;
   }
 
-  std::vector<std_basic_string> split(size_type maxsplit = SIZE_MAX) {
-    auto tokens = std::vector<std_basic_string>();
+  std::vector<basic_string> split(size_type maxsplit = SIZE_MAX) {
+    auto tokens = std::vector<basic_string>();
     if (maxsplit == 0)
       return tokens;
 
