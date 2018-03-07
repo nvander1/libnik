@@ -15,29 +15,29 @@ namespace nik {
 template <typename CharT, typename Traits = std::char_traits<CharT>,
           typename Allocator = std::allocator<CharT>>
 class basic_string : public std::basic_string<CharT, Traits, Allocator> {
-  using stl_basic_string = std::basic_string<CharT, Traits, Allocator>;
+  using std_basic_string = std::basic_string<CharT, Traits, Allocator>;
 
 public:
   // Member types
-  using traits_type = typename stl_basic_string::traits_type;
-  using value_type = typename stl_basic_string::value_type;
-  using allocator_type = typename stl_basic_string::allocator_type;
-  using size_type = typename stl_basic_string::size_type;
-  using difference_type = typename stl_basic_string::difference_type;
-  using reference = typename stl_basic_string::reference;
-  using const_reference = typename stl_basic_string::const_reference;
-  using pointer = typename stl_basic_string::pointer;
-  using const_pointer = typename stl_basic_string::const_pointer;
-  using iterator = typename stl_basic_string::iterator;
-  using const_iterator = typename stl_basic_string::const_iterator;
-  using reverse_iterator = typename stl_basic_string::reverse_iterator;
+  using traits_type = typename std_basic_string::traits_type;
+  using value_type = typename std_basic_string::value_type;
+  using allocator_type = typename std_basic_string::allocator_type;
+  using size_type = typename std_basic_string::size_type;
+  using difference_type = typename std_basic_string::difference_type;
+  using reference = typename std_basic_string::reference;
+  using const_reference = typename std_basic_string::const_reference;
+  using pointer = typename std_basic_string::pointer;
+  using const_pointer = typename std_basic_string::const_pointer;
+  using iterator = typename std_basic_string::iterator;
+  using const_iterator = typename std_basic_string::const_iterator;
+  using reverse_iterator = typename std_basic_string::reverse_iterator;
   using const_reverse_iterator =
-      typename stl_basic_string::const_reverse_iterator;
+      typename std_basic_string::const_reverse_iterator;
 
   // Member functions
-  using stl_basic_string::basic_string;
+  using std_basic_string::basic_string;
 
-  basic_string(stl_basic_string other) : stl_basic_string{other} {}
+  basic_string(std_basic_string other) : std_basic_string{other} {}
 
   basic_string capitalize() {
     auto copied = *this;
@@ -57,7 +57,7 @@ public:
     return pad(left, marg - left, fillchar);
   }
 
-  size_type count(stl_basic_string sub, size_type start = 0,
+  size_type count(std_basic_string sub, size_type start = 0,
                   size_type end = 0) {
     if (end == 0)
       end += this->size();
@@ -71,8 +71,8 @@ public:
     return seen;
   }
 
-  std::vector<stl_basic_string> split(stl_basic_string sep) {
-    auto tokens = std::vector<stl_basic_string>();
+  std::vector<std_basic_string> split(std_basic_string sep) {
+    auto tokens = std::vector<std_basic_string>();
     size_type prev = 0;
     size_type next = 0;
 
@@ -85,9 +85,9 @@ public:
     return tokens;
   }
 
-  std::vector<stl_basic_string> split(stl_basic_string sep,
+  std::vector<std_basic_string> split(std_basic_string sep,
                                       size_type maxsplit) {
-    auto tokens = std::vector<stl_basic_string>();
+    auto tokens = std::vector<std_basic_string>();
     if (maxsplit == 0)
       return tokens;
 
@@ -105,13 +105,13 @@ public:
     return tokens;
   }
 
-  std::vector<stl_basic_string> split(size_type maxsplit = SIZE_MAX) {
-    auto tokens = std::vector<stl_basic_string>();
+  std::vector<std_basic_string> split(size_type maxsplit = SIZE_MAX) {
+    auto tokens = std::vector<std_basic_string>();
     if (maxsplit == 0)
       return tokens;
 
     auto iss = std::istringstream(*this);
-    using Iterator = std::istream_iterator<stl_basic_string>;
+    using Iterator = std::istream_iterator<std_basic_string>;
 
     if (maxsplit == SIZE_MAX)
       std::copy(Iterator(iss), Iterator(), std::back_inserter(tokens));
