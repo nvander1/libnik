@@ -22,7 +22,7 @@
         },
         {
             "location": "/strings/overview/",
-            "text": "Strings library\n\n\nThe Nik strings library provides user-friendly functionality for manipulating\nstrings. All classes and functions referenced without an explicit namespace\nare members of \nnamespace nik\n.\n\n\nClasses\n\n\n\n\n\n\n\n\n\n\nName\n\n\nBrief description\n\n\n\n\n\n\n\n\n\n\nstring\n\n\nA subclass of \nstd::string\n providing functionality similar to Python strings.\n\n\n\n\n\n\n\n\nstring\n\n\n\n\nMember functions\n\n\n\n\n\n\n\n\nName\n\n\nReturn type\n\n\nBrief Description\n\n\n\n\n\n\n\n\n\n\ncapitalize\n\n\nstring\n\n\nReturns a copy of the string with its first character capitalized.\n\n\n\n\n\n\ncenter\n\n\nstring\n\n\nReturns a copy of the string centered in a buffer.\n\n\n\n\n\n\ncount\n\n\nsize_t\n\n\nCounts the number of non-overlapping occurances of a substring.\n\n\n\n\n\n\nsplit\n\n\nstd::vector<string>\n\n\nSplits a string by a delimeter into tokens.",
+            "text": "Strings library\n\n\nThe Nik strings library provides user-friendly functionality for manipulating\nstrings. All classes and functions referenced without an explicit namespace\nare members of \nnamespace nik\n.\n\n\nClasses\n\n\n\n\n\n\n\n\n\n\nName\n\n\nBrief description\n\n\n\n\n\n\n\n\n\n\nbasic_string\n\n\nA subclass of \nstd::string\n providing functionality similar to Python strings.\n\n\n\n\n\n\n\n\nstring\n\n\n\n\nMember functions\n\n\n\n\n\n\n\n\nName\n\n\nReturn type\n\n\nBrief Description\n\n\n\n\n\n\n\n\n\n\ncapitalize\n\n\nbasic_string\n\n\nReturns a copy of the string with its first character capitalized.\n\n\n\n\n\n\ncenter\n\n\nbasic_string\n\n\nReturns a copy of the string centered in a buffer.\n\n\n\n\n\n\ncount\n\n\nsize_t\n\n\nCounts the number of non-overlapping occurances of a substring.\n\n\n\n\n\n\nsplit\n\n\nstd::vector<basic_string>\n\n\nSplits a string by a delimeter into tokens.",
             "title": "Overview"
         },
         {
@@ -32,7 +32,7 @@
         },
         {
             "location": "/strings/overview/#classes",
-            "text": "Name  Brief description      string  A subclass of  std::string  providing functionality similar to Python strings.",
+            "text": "Name  Brief description      basic_string  A subclass of  std::string  providing functionality similar to Python strings.",
             "title": "Classes"
         },
         {
@@ -42,126 +42,146 @@
         },
         {
             "location": "/strings/overview/#member-functions",
-            "text": "Name  Return type  Brief Description      capitalize  string  Returns a copy of the string with its first character capitalized.    center  string  Returns a copy of the string centered in a buffer.    count  size_t  Counts the number of non-overlapping occurances of a substring.    split  std::vector<string>  Splits a string by a delimeter into tokens.",
+            "text": "Name  Return type  Brief Description      capitalize  basic_string  Returns a copy of the string with its first character capitalized.    center  basic_string  Returns a copy of the string centered in a buffer.    count  size_t  Counts the number of non-overlapping occurances of a substring.    split  std::vector<basic_string>  Splits a string by a delimeter into tokens.",
             "title": "Member functions"
         },
         {
-            "location": "/strings/string/member_funcs/capitalize/",
-            "text": "nik::string::capitalize\n\n\n\n\nSignatures\n\n\n\n\nstring capitalize()\n\n\n\n\nParameters\n\n\n(none)\n\n\nReturns\n\n\nReturns a copy of the string with its first character capitalized.\nThe behavior is undefined if \nempty() == true\n.\n\n\nExample\n\n\n#include\n \n<nik/string.hpp>\n\n\n#inlcude <iostream>\n\n\n\nint\n \nmain\n()\n \n{\n\n    \nauto\n \nhello\n \n=\n \nnik\n::\nstring\n(\n\"hello\"\n);\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncapitalize\n()\n \n<<\n \nstd\n::\nendl\n;\n \n// prints \"Hello\"\n\n\n}",
+            "location": "/strings/basic_string/overview/",
+            "text": "nik::basic_string\n\n\n\n\nDefined in header \n<nik/string.hpp>\n\n\ntemplate\n<\n\n    \ntypename\n \nCharT\n,\n\n    \ntypename\n \nTraits\n \n=\n \nstd\n::\nchar_traits\n<\nCharT\n>\n,\n\n    \ntypename\n \nAllocator\n \n=\n \nstd\n::\nallocator\n<\nCharT\n>\n\n\n>\n \nclass\n \nbasic_string\n;\n\n\n\n\n\n\nThe class template \nbasic_string\n adds functionality to the class template\n\nstd::basic_string\n.\n\n\nSeveral typedefs for common character types are provided:\n\n\n\n\n\n\n\n\nType\n\n\nDefinition\n\n\n\n\n\n\n\n\n\n\nnik::string\n\n\nnik::basic_string<char>\n\n\n\n\n\n\nnik::wstring\n\n\nnik::basic_string<wchar_t>\n\n\n\n\n\n\nnik::u16string\n\n\nnik::basic_string<char16_t>\n\n\n\n\n\n\nnik::u32string\n\n\nnik::basic_string<char32_t>\n\n\n\n\n\n\n\n\nTemplate parameters\n\n\n\n\nCharT\n : character type\n\n\nTraits\n : traits class specifying the operations on the character type\n\n\nAllocator\n : \nAllocator\n type used to allocate internal storage\n\n\n\n\nMember types\n\n\n\n\n\n\n\n\nMember type\n\n\nDefinition\n\n\n\n\n\n\n\n\n\n\nstd_basic_string\n\n\nstd::basic_string<CharT, Traits, Allocator>\n\n\n\n\n\n\ntraits_type\n\n\ntypename std_basic_string::traits_type;\n\n\n\n\n\n\nvalue_type\n\n\ntypename std_basic_string::value_type;\n\n\n\n\n\n\nallocator_type\n\n\ntypename std_basic_string::allocator_type;\n\n\n\n\n\n\nsize_type\n\n\ntypename std_basic_string::size_type;\n\n\n\n\n\n\ndifference_type\n\n\ntypename std_basic_string::difference_type;\n\n\n\n\n\n\nreference\n\n\ntypename std_basic_string::reference;\n\n\n\n\n\n\nconst_reference\n\n\ntypename std_basic_string::const_reference;\n\n\n\n\n\n\npointer\n\n\ntypename std_basic_string::pointer;\n\n\n\n\n\n\nconst_pointer\n\n\ntypename std_basic_string::const_pointer;\n\n\n\n\n\n\niterator\n\n\ntypename std_basic_string::iterator;\n\n\n\n\n\n\nconst_iterator\n\n\ntypename std_basic_string::const_iterator;\n\n\n\n\n\n\nreverse_iterator\n\n\ntypename std_basic_string::reverse_iterator;\n\n\n\n\n\n\nconst_reverse_iterator\n\n\ntypename std_basic_string::const_reverse_iterator;",
+            "title": "Overview"
+        },
+        {
+            "location": "/strings/basic_string/overview/#nikbasic_string",
+            "text": "Defined in header  <nik/string.hpp>  template < \n     typename   CharT , \n     typename   Traits   =   std :: char_traits < CharT > , \n     typename   Allocator   =   std :: allocator < CharT >  >   class   basic_string ;   The class template  basic_string  adds functionality to the class template std::basic_string .  Several typedefs for common character types are provided:     Type  Definition      nik::string  nik::basic_string<char>    nik::wstring  nik::basic_string<wchar_t>    nik::u16string  nik::basic_string<char16_t>    nik::u32string  nik::basic_string<char32_t>",
+            "title": "nik::basic_string"
+        },
+        {
+            "location": "/strings/basic_string/overview/#template-parameters",
+            "text": "CharT  : character type  Traits  : traits class specifying the operations on the character type  Allocator  :  Allocator  type used to allocate internal storage",
+            "title": "Template parameters"
+        },
+        {
+            "location": "/strings/basic_string/overview/#member-types",
+            "text": "Member type  Definition      std_basic_string  std::basic_string<CharT, Traits, Allocator>    traits_type  typename std_basic_string::traits_type;    value_type  typename std_basic_string::value_type;    allocator_type  typename std_basic_string::allocator_type;    size_type  typename std_basic_string::size_type;    difference_type  typename std_basic_string::difference_type;    reference  typename std_basic_string::reference;    const_reference  typename std_basic_string::const_reference;    pointer  typename std_basic_string::pointer;    const_pointer  typename std_basic_string::const_pointer;    iterator  typename std_basic_string::iterator;    const_iterator  typename std_basic_string::const_iterator;    reverse_iterator  typename std_basic_string::reverse_iterator;    const_reverse_iterator  typename std_basic_string::const_reverse_iterator;",
+            "title": "Member types"
+        },
+        {
+            "location": "/strings/basic_string/member_funcs/capitalize/",
+            "text": "nik::basic_string::capitalize\n\n\n\n\nSignatures\n\n\n\n\nbasic_string capitalize()\n\n\n\n\nParameters\n\n\n(none)\n\n\nReturns\n\n\nReturns a copy of the string with its first character capitalized.\nThe behavior is undefined if \nempty() == true\n.\n\n\nExample\n\n\n#include\n \n<nik/string.hpp>\n\n\n#inlcude <iostream>\n\n\n\nint\n \nmain\n()\n \n{\n\n    \nauto\n \nhello\n \n=\n \nnik\n::\nstring\n(\n\"hello\"\n);\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncapitalize\n()\n \n<<\n \nstd\n::\nendl\n;\n \n// prints \"Hello\"\n\n\n}",
             "title": "capitalize"
         },
         {
-            "location": "/strings/string/member_funcs/capitalize/#nikstringcapitalize",
+            "location": "/strings/basic_string/member_funcs/capitalize/#nikbasic_stringcapitalize",
             "text": "",
-            "title": "nik::string::capitalize"
+            "title": "nik::basic_string::capitalize"
         },
         {
-            "location": "/strings/string/member_funcs/capitalize/#signatures",
-            "text": "string capitalize()",
+            "location": "/strings/basic_string/member_funcs/capitalize/#signatures",
+            "text": "basic_string capitalize()",
             "title": "Signatures"
         },
         {
-            "location": "/strings/string/member_funcs/capitalize/#parameters",
+            "location": "/strings/basic_string/member_funcs/capitalize/#parameters",
             "text": "(none)",
             "title": "Parameters"
         },
         {
-            "location": "/strings/string/member_funcs/capitalize/#returns",
+            "location": "/strings/basic_string/member_funcs/capitalize/#returns",
             "text": "Returns a copy of the string with its first character capitalized.\nThe behavior is undefined if  empty() == true .",
             "title": "Returns"
         },
         {
-            "location": "/strings/string/member_funcs/capitalize/#example",
+            "location": "/strings/basic_string/member_funcs/capitalize/#example",
             "text": "#include   <nik/string.hpp>  #inlcude <iostream>  int   main ()   { \n     auto   hello   =   nik :: string ( \"hello\" ); \n     std :: cout   <<   hello . capitalize ()   <<   std :: endl ;   // prints \"Hello\"  }",
             "title": "Example"
         },
         {
-            "location": "/strings/string/member_funcs/center/",
-            "text": "nik::string::center\n\n\nSignatures\n\n\n\n\nstring center(size_t width, char fillchar=' ')\n\n\n\n\nParameters\n\n\n\n\nwidth\n : The desired buffer width.\n\n\nfillchar\n : The character to use for padding.\n\n\n\n\nReturns\n\n\nReturns a copy of the string centered in a string of length \nwidth\n.\nPadding is done with \nfillchar\n. If \nwidth\n is less than the length of\nthe string, a copy of the string is returned.\n\n\nExample\n\n\n#include\n \n<nik/string.hpp>\n\n\n#inlcude <iostream>\n\n\n\nint\n \nmain\n()\n \n{\n\n    \nauto\n \nhello\n \n=\n \nnik\n::\nstring\n(\n\"hello\"\n);\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncenter\n(\n9\n)\n \n<<\n \nstd\n::\nendl\n;\n      \n// prints \"  hello  \"\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncenter\n(\n9\n,\n \n'-'\n)\n \n<<\n \nstd\n::\nendl\n;\n \n// prints \"--hello--\"\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncenter\n(\n1\n)\n \n<<\n \nstd\n::\nendl\n;\n      \n// prints \"hello\"\n\n\n}",
+            "location": "/strings/basic_string/member_funcs/center/",
+            "text": "nik::basic_string::center\n\n\nSignatures\n\n\n\n\nbasic_string center(size_type width, CharT fillchar=' ')\n\n\n\n\nParameters\n\n\n\n\nwidth\n : The desired buffer width.\n\n\nfillchar\n : The character to use for padding.\n\n\n\n\nReturns\n\n\nReturns a copy of the string centered in a string of length \nwidth\n.\nPadding is done with \nfillchar\n. If \nwidth\n is less than the length of\nthe string, a copy of the string is returned.\n\n\nExample\n\n\n#include\n \n<nik/string.hpp>\n\n\n#inlcude <iostream>\n\n\n\nint\n \nmain\n()\n \n{\n\n    \nauto\n \nhello\n \n=\n \nnik\n::\nstring\n(\n\"hello\"\n);\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncenter\n(\n9\n)\n \n<<\n \nstd\n::\nendl\n;\n      \n// prints \"  hello  \"\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncenter\n(\n9\n,\n \n'-'\n)\n \n<<\n \nstd\n::\nendl\n;\n \n// prints \"--hello--\"\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncenter\n(\n1\n)\n \n<<\n \nstd\n::\nendl\n;\n      \n// prints \"hello\"\n\n\n}",
             "title": "center"
         },
         {
-            "location": "/strings/string/member_funcs/center/#nikstringcenter",
+            "location": "/strings/basic_string/member_funcs/center/#nikbasic_stringcenter",
             "text": "",
-            "title": "nik::string::center"
+            "title": "nik::basic_string::center"
         },
         {
-            "location": "/strings/string/member_funcs/center/#signatures",
-            "text": "string center(size_t width, char fillchar=' ')",
+            "location": "/strings/basic_string/member_funcs/center/#signatures",
+            "text": "basic_string center(size_type width, CharT fillchar=' ')",
             "title": "Signatures"
         },
         {
-            "location": "/strings/string/member_funcs/center/#parameters",
+            "location": "/strings/basic_string/member_funcs/center/#parameters",
             "text": "width  : The desired buffer width.  fillchar  : The character to use for padding.",
             "title": "Parameters"
         },
         {
-            "location": "/strings/string/member_funcs/center/#returns",
+            "location": "/strings/basic_string/member_funcs/center/#returns",
             "text": "Returns a copy of the string centered in a string of length  width .\nPadding is done with  fillchar . If  width  is less than the length of\nthe string, a copy of the string is returned.",
             "title": "Returns"
         },
         {
-            "location": "/strings/string/member_funcs/center/#example",
+            "location": "/strings/basic_string/member_funcs/center/#example",
             "text": "#include   <nik/string.hpp>  #inlcude <iostream>  int   main ()   { \n     auto   hello   =   nik :: string ( \"hello\" ); \n     std :: cout   <<   hello . center ( 9 )   <<   std :: endl ;        // prints \"  hello  \" \n     std :: cout   <<   hello . center ( 9 ,   '-' )   <<   std :: endl ;   // prints \"--hello--\" \n     std :: cout   <<   hello . center ( 1 )   <<   std :: endl ;        // prints \"hello\"  }",
             "title": "Example"
         },
         {
-            "location": "/strings/string/member_funcs/count/",
-            "text": "nik::string::count\n\n\nSignatures\n\n\n\n\nsize_t count(std::string sub, size_t start = 0, size_t end = 0)\n\n\n\n\nParameters\n\n\n\n\nsub\n : The substring for which to look.\n\n\nstart\n : The index at which to start searching.\n\n\nend\n : The index at which to end searching.\n\n\n\n\nReturns\n\n\nA count of the number of non-overlapping occurences of \nsub\n in the\nrange [\nstart\n : \nend\n].\n\n\nExample\n\n\n#include\n \n<nik/string.hpp>\n\n\n#inlcude <iostream>\n\n\n\nint\n \nmain\n()\n \n{\n\n    \nauto\n \nhello\n \n=\n \nnik\n::\nstring\n(\n\"hello hello hello\"\n);\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncount\n(\n\"hello\"\n)\n \n<<\n \nstd\n::\nendl\n;\n        \n// prints 3\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncount\n(\n\"hello\"\n,\n \n5\n)\n \n<<\n \nstd\n::\nendl\n;\n     \n// prints 2\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncount\n(\n\"hello\"\n,\n \n5\n,\n \n12\n)\n \n<<\n \nstd\n::\nendl\n;\n \n// prints 1\n\n\n}",
+            "location": "/strings/basic_string/member_funcs/count/",
+            "text": "nik::basic_string::count\n\n\nSignatures\n\n\n\n\nsize_type count(std_basic_string sub, size_type start = 0, size_type end = 0)\n\n\n\n\nParameters\n\n\n\n\nsub\n : The substring for which to look.\n\n\nstart\n : The index at which to start searching.\n\n\nend\n : The index at which to end searching.\n\n\n\n\nReturns\n\n\nA count of the number of non-overlapping occurences of \nsub\n in the\nrange [\nstart\n : \nend\n].\n\n\nExample\n\n\n#include\n \n<nik/string.hpp>\n\n\n#inlcude <iostream>\n\n\n\nint\n \nmain\n()\n \n{\n\n    \nauto\n \nhello\n \n=\n \nnik\n::\nstring\n(\n\"hello hello hello\"\n);\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncount\n(\n\"hello\"\n)\n \n<<\n \nstd\n::\nendl\n;\n        \n// prints 3\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncount\n(\n\"hello\"\n,\n \n5\n)\n \n<<\n \nstd\n::\nendl\n;\n     \n// prints 2\n\n    \nstd\n::\ncout\n \n<<\n \nhello\n.\ncount\n(\n\"hello\"\n,\n \n5\n,\n \n12\n)\n \n<<\n \nstd\n::\nendl\n;\n \n// prints 1\n\n\n}",
             "title": "count"
         },
         {
-            "location": "/strings/string/member_funcs/count/#nikstringcount",
+            "location": "/strings/basic_string/member_funcs/count/#nikbasic_stringcount",
             "text": "",
-            "title": "nik::string::count"
+            "title": "nik::basic_string::count"
         },
         {
-            "location": "/strings/string/member_funcs/count/#signatures",
-            "text": "size_t count(std::string sub, size_t start = 0, size_t end = 0)",
+            "location": "/strings/basic_string/member_funcs/count/#signatures",
+            "text": "size_type count(std_basic_string sub, size_type start = 0, size_type end = 0)",
             "title": "Signatures"
         },
         {
-            "location": "/strings/string/member_funcs/count/#parameters",
+            "location": "/strings/basic_string/member_funcs/count/#parameters",
             "text": "sub  : The substring for which to look.  start  : The index at which to start searching.  end  : The index at which to end searching.",
             "title": "Parameters"
         },
         {
-            "location": "/strings/string/member_funcs/count/#returns",
+            "location": "/strings/basic_string/member_funcs/count/#returns",
             "text": "A count of the number of non-overlapping occurences of  sub  in the\nrange [ start  :  end ].",
             "title": "Returns"
         },
         {
-            "location": "/strings/string/member_funcs/count/#example",
+            "location": "/strings/basic_string/member_funcs/count/#example",
             "text": "#include   <nik/string.hpp>  #inlcude <iostream>  int   main ()   { \n     auto   hello   =   nik :: string ( \"hello hello hello\" ); \n     std :: cout   <<   hello . count ( \"hello\" )   <<   std :: endl ;          // prints 3 \n     std :: cout   <<   hello . count ( \"hello\" ,   5 )   <<   std :: endl ;       // prints 2 \n     std :: cout   <<   hello . count ( \"hello\" ,   5 ,   12 )   <<   std :: endl ;   // prints 1  }",
             "title": "Example"
         },
         {
-            "location": "/strings/string/member_funcs/split/",
-            "text": "nik::string::split\n\n\nSignatures\n\n\n\n\nstd::vector<string> split(size_t maxsplit = SIZE_MAX)\n\n\nstd::vector<string> split(std::string sep)\n\n\nstd::vector<string> split(std::string sep, size_t maxsplit)\n\n\n\n\nParameters\n\n\n\n\nsep\n : The delimeter to split on.\n\n\nmaxsplit\n: The maximum number of splits to make.\n\n\n\n\nReturns\n\n\n\n\nTokens split by whitespace. Limited to \nmaxsplit\n + 1 tokens if specified.\n\n\nTokens split by \nsep\n.\n\n\nTokens split by \nsep\n. Limited to \nmaxsplit\n + 1 tokens.\n\n\n\n\nExample\n\n\n#include\n \n<nik/string.hpp>\n\n\n#include\n \n<cassert>\n\n\n#include\n \n<iostream>\n\n\n\nint\n \nmain\n()\n \n{\n\n    \n// splitting on a comma\n\n    \nauto\n \ncsv\n \n=\n \nnik\n::\nstring\n(\n\"a,b,c,d,e\"\n);\n\n\n    \nauto\n \ncsv_toks\n \n=\n \ncsv\n.\nsplit\n(\n\",\"\n);\n\n    \nassert\n(\ncsv_toks\n.\nsize\n()\n \n==\n \n5\n);\n\n\n    \nauto\n \ncsv_3toks\n \n=\n \ncsv\n.\nsplit\n(\n\",\"\n,\n \n2\n);\n\n    \nassert\n(\ncsv_3toks\n.\nsize\n()\n \n==\n \n3\n);\n\n\n    \n// splitting on whitespace\n\n    \nauto\n \ntext\n \n=\n \nnik\n::\nstring\n(\n\"a    \n\\t\n b \n\\t\\t\\t\n c\"\n);\n\n    \nassert\n(\ntext\n.\nsplit\n().\nsize\n()\n \n==\n \n3\n);\n\n\n}",
+            "location": "/strings/basic_string/member_funcs/split/",
+            "text": "nik::basic_string::split\n\n\nSignatures\n\n\n\n\nstd::vector<basic_string> split(size_type maxsplit = SIZE_MAX)\n\n\nstd::vector<basic_string> split(std_basic_string sep)\n\n\nstd::vector<basic_string> split(std_basic_string sep, size_type maxsplit)\n\n\n\n\nParameters\n\n\n\n\nsep\n : The delimeter to split on.\n\n\nmaxsplit\n: The maximum number of splits to make.\n\n\n\n\nReturns\n\n\n\n\nTokens split by whitespace. Limited to \nmaxsplit\n + 1 tokens if specified.\n\n\nTokens split by \nsep\n.\n\n\nTokens split by \nsep\n. Limited to \nmaxsplit\n + 1 tokens.\n\n\n\n\nExample\n\n\n#include\n \n<nik/string.hpp>\n\n\n#include\n \n<cassert>\n\n\n#include\n \n<iostream>\n\n\n\nint\n \nmain\n()\n \n{\n\n    \n// splitting on a comma\n\n    \nauto\n \ncsv\n \n=\n \nnik\n::\nstring\n(\n\"a,b,c,d,e\"\n);\n\n\n    \nauto\n \ncsv_toks\n \n=\n \ncsv\n.\nsplit\n(\n\",\"\n);\n\n    \nassert\n(\ncsv_toks\n.\nsize\n()\n \n==\n \n5\n);\n\n\n    \nauto\n \ncsv_3toks\n \n=\n \ncsv\n.\nsplit\n(\n\",\"\n,\n \n2\n);\n\n    \nassert\n(\ncsv_3toks\n.\nsize\n()\n \n==\n \n3\n);\n\n\n    \n// splitting on whitespace\n\n    \nauto\n \ntext\n \n=\n \nnik\n::\nstring\n(\n\"a    \n\\t\n b \n\\t\\t\\t\n c\"\n);\n\n    \nassert\n(\ntext\n.\nsplit\n().\nsize\n()\n \n==\n \n3\n);\n\n\n}",
             "title": "split"
         },
         {
-            "location": "/strings/string/member_funcs/split/#nikstringsplit",
+            "location": "/strings/basic_string/member_funcs/split/#nikbasic_stringsplit",
             "text": "",
-            "title": "nik::string::split"
+            "title": "nik::basic_string::split"
         },
         {
-            "location": "/strings/string/member_funcs/split/#signatures",
-            "text": "std::vector<string> split(size_t maxsplit = SIZE_MAX)  std::vector<string> split(std::string sep)  std::vector<string> split(std::string sep, size_t maxsplit)",
+            "location": "/strings/basic_string/member_funcs/split/#signatures",
+            "text": "std::vector<basic_string> split(size_type maxsplit = SIZE_MAX)  std::vector<basic_string> split(std_basic_string sep)  std::vector<basic_string> split(std_basic_string sep, size_type maxsplit)",
             "title": "Signatures"
         },
         {
-            "location": "/strings/string/member_funcs/split/#parameters",
+            "location": "/strings/basic_string/member_funcs/split/#parameters",
             "text": "sep  : The delimeter to split on.  maxsplit : The maximum number of splits to make.",
             "title": "Parameters"
         },
         {
-            "location": "/strings/string/member_funcs/split/#returns",
+            "location": "/strings/basic_string/member_funcs/split/#returns",
             "text": "Tokens split by whitespace. Limited to  maxsplit  + 1 tokens if specified.  Tokens split by  sep .  Tokens split by  sep . Limited to  maxsplit  + 1 tokens.",
             "title": "Returns"
         },
         {
-            "location": "/strings/string/member_funcs/split/#example",
+            "location": "/strings/basic_string/member_funcs/split/#example",
             "text": "#include   <nik/string.hpp>  #include   <cassert>  #include   <iostream>  int   main ()   { \n     // splitting on a comma \n     auto   csv   =   nik :: string ( \"a,b,c,d,e\" ); \n\n     auto   csv_toks   =   csv . split ( \",\" ); \n     assert ( csv_toks . size ()   ==   5 ); \n\n     auto   csv_3toks   =   csv . split ( \",\" ,   2 ); \n     assert ( csv_3toks . size ()   ==   3 ); \n\n     // splitting on whitespace \n     auto   text   =   nik :: string ( \"a     \\t  b  \\t\\t\\t  c\" ); \n     assert ( text . split (). size ()   ==   3 );  }",
             "title": "Example"
         }
