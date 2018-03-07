@@ -18,6 +18,22 @@ class basic_string : public std::basic_string<CharT, Traits, Allocator> {
   using stl_basic_string = std::basic_string<CharT, Traits, Allocator>;
 
 public:
+  // Member types
+  using traits_type = typename stl_basic_string::traits_type;
+  using value_type = typename stl_basic_string::value_type;
+  using allocator_type = typename stl_basic_string::allocator_type;
+  using size_type = typename stl_basic_string::size_type;
+  using difference_type = typename stl_basic_string::difference_type;
+  using reference = typename stl_basic_string::reference;
+  using const_reference = typename stl_basic_string::const_reference;
+  using pointer = typename stl_basic_string::pointer;
+  using const_pointer = typename stl_basic_string::const_pointer;
+  using iterator = typename stl_basic_string::iterator;
+  using const_iterator = typename stl_basic_string::const_iterator;
+  using reverse_iterator = typename stl_basic_string::reverse_iterator;
+  using const_reverse_iterator =
+      typename stl_basic_string::const_reverse_iterator;
+
   // Member functions
   using stl_basic_string::basic_string;
 
@@ -31,7 +47,7 @@ public:
   }
 
   // https://github.com/python/cpython/blob/master/Objects/stringlib/transmogrify.h#L156-L174
-  basic_string center(int width, char fillchar = ' ') {
+  basic_string center(size_type width, CharT fillchar = ' ') {
     if (this->size() >= width)
       return *this;
 
@@ -41,14 +57,15 @@ public:
     return pad(left, marg - left, fillchar);
   }
 
-  size_t count(stl_basic_string sub, size_t start = 0, size_t end = 0) {
+  size_type count(stl_basic_string sub, size_type start = 0,
+                  size_type end = 0) {
     if (end == 0)
       end += this->size();
     auto searched_portion = this->substr(start, end - start);
-    size_t seen = 0;
+    size_type seen = 0;
     int pos = -1;
-    while ((pos = searched_portion.find(sub, static_cast<size_t>(pos + 1))) !=
-           basic_string::npos) {
+    while ((pos = searched_portion.find(
+                sub, static_cast<size_type>(pos + 1))) != basic_string::npos) {
       seen++;
     }
     return seen;
@@ -56,8 +73,8 @@ public:
 
   std::vector<stl_basic_string> split(stl_basic_string sep) {
     auto tokens = std::vector<stl_basic_string>();
-    size_t prev = 0;
-    size_t next = 0;
+    size_type prev = 0;
+    size_type next = 0;
 
     while ((next = this->find(sep, prev)) != basic_string::npos) {
       tokens.push_back(this->substr(prev, next - prev));
@@ -68,13 +85,14 @@ public:
     return tokens;
   }
 
-  std::vector<stl_basic_string> split(stl_basic_string sep, size_t maxsplit) {
+  std::vector<stl_basic_string> split(stl_basic_string sep,
+                                      size_type maxsplit) {
     auto tokens = std::vector<stl_basic_string>();
     if (maxsplit == 0)
       return tokens;
 
-    size_t prev = 0;
-    size_t next = 0;
+    size_type prev = 0;
+    size_type next = 0;
 
     while ((next = this->find(sep, prev)) != basic_string::npos) {
       tokens.push_back(this->substr(prev, next - prev));
@@ -87,7 +105,7 @@ public:
     return tokens;
   }
 
-  std::vector<stl_basic_string> split(size_t maxsplit = SIZE_MAX) {
+  std::vector<stl_basic_string> split(size_type maxsplit = SIZE_MAX) {
     auto tokens = std::vector<stl_basic_string>();
     if (maxsplit == 0)
       return tokens;
@@ -105,7 +123,7 @@ public:
 
 private:
   // https://github.com/python/cpython/blob/master/Objects/stringlib/transmogrify.h#L93-L120
-  basic_string pad(size_t left, size_t right, char fill) {
+  basic_string pad(size_type left, size_type right, CharT fill) {
     if (left < 0)
       left = 0;
     if (right < 0)
