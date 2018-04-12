@@ -131,3 +131,7 @@ Methods implemented so far:
 * [center](https://docs.python.org/3/library/stdtypes.html#str.center)
 * [count](https://docs.python.org/3/library/stdtypes.html#str.count)
 * [split](https://docs.python.org/3/library/stdtypes.html#str.split)
+
+### C++ Concepts
+Library concepts defined [here](http://en.cppreference.com/w/cpp/concept).
+Implemented using the [Concepts TS extensions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4377.pdf) for gcc.
