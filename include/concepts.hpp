@@ -3,6 +3,10 @@
 #ifdef __cpp_concepts
 #include <type_traits>
 
+#ifndef NDEBUG
+#include <memory>
+#endif
+
 namespace nik {
 
 // Basic
@@ -94,6 +98,27 @@ concept bool Swappable = std::is_swappable_with_v<T, U>;
 
 template <typename T, typename U = T>
 concept bool NothrowSwappable = std::is_nothrow_swappable_with_v<T, U>;
+
+template <typename T>
+concept bool NullablePointer = requires(T p, T q, std::nullptr_t np) {
+  requires EqualityComparable<T>;
+  requires DefaultConstructible<T>;
+  requires CopyConstructible<T>;
+  requires CopyAssignable<T>;
+  requires Destructible<T>;
+  { T(np) } -> T;
+  { p = np } -> T&;
+  { p == np } -> bool
+  { np == p } -> bool;
+  { p != np } -> bool;
+  { np != p } -> bool;
+};
+
+#ifndef NDEBUG
+static_assert(NullablePointer<void *>);
+static_assert(NullablePointer<typename std::unique_ptr<int>::pointer>);
+static_assert(NullablePointer<typename std::unique_ptr<char*>::pointer>);
+#endif
 
 } // namespace nik
 
