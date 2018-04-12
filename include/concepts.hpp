@@ -77,6 +77,24 @@ concept bool StandardLayoutType = std::is_standard_layout_v<T>;
 template <typename T>
 concept bool PODType = std::is_pod_v<T>;
 
+// Library-wide
+template <typename T>
+concept bool EqualityComparable = requires(T a, T b) {
+  { a == b } -> bool;
+  { a != b } -> bool;
+};
+
+template <typename T>
+concept bool LessThanComparable = requires(T a, T b) {
+  { a < b } -> bool;
+};
+
+template <typename T, typename U = T>
+concept bool Swappable = std::is_swappable_with_v<T, U>;
+
+template <typename T, typename U = T>
+concept bool NothrowSwappable = std::is_nothrow_swappable_with_v<T, U>;
+
 } // namespace nik
 
 #endif // __cpp_concepts
