@@ -12,10 +12,6 @@
 
 namespace nik {
 
-// template <typename CharT, typename Traits = std::char_traits<CharT>,
-//           typename Allocator = std::allocator<CharT>>
-
-
 template <typename StringT>
 StringT capitalize(StringT string) {
   auto& front_char = string.front();
