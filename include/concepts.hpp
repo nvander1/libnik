@@ -94,7 +94,8 @@ concept bool LessThanComparable = requires(T a, T b) {
 };
 
 template <typename T, typename U = T>
-concept bool Swappable = std::is_swappable_with_v<T, U>;
+concept bool Swappable = std::is_same_v<T, U> ? std::is_swappable_v<T>
+                                              : std::is_swappable_with_v<T, U>;
 
 template <typename T, typename U = T>
 concept bool NothrowSwappable = std::is_nothrow_swappable_with_v<T, U>;
