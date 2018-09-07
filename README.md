@@ -9,7 +9,7 @@
 
 First, get the source.
 
-    git clone https://www.github.com/nvander1/libnik.git
+    git clone --recurse-submodules https://www.github.com/nvander1/libnik.git
 
 Then, generate the build files.
 
