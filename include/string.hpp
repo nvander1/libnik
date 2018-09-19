@@ -10,23 +10,23 @@ template <typename CharT, typename Traits = std::char_traits<CharT>,
 class basic_string {
  public:
   // Member types
-  using StringT = std::basic_string<CharT, Traits, Allocator>;
+  using string_type = std::basic_string<CharT, Traits, Allocator>;
 
   // Member functions
 
   /// Constructors
 
   //// Copy conversion constructor
-  basic_string(const StringT& other) : s{other} {}
+  basic_string(const string_type& other) : s{other} {}
 
   //// Move conversion constructor
-  basic_string(StringT&& other) : s{other} {}
+  basic_string(string_type&& other) : s{other} {}
 
   /// Conversion operator
-  operator StringT() { return s; }
+  operator string_type() { return s; }
 
   // Members
-  StringT s;
+  string_type s;
 };
 
 } // namespace nik
