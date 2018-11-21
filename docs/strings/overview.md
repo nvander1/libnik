@@ -10,14 +10,42 @@ are members of `namespace nik`.
 
 | Name           | Brief description                                                              |
 |----------------|--------------------------------------------------------------------------------|
-| `basic_string` | A subclass of `std::string` providing functionality similar to Python strings. |
+| `basic_string` | An adapter for string types providing functionality similar to Python strings. |
 
 
-## `string`
+## `basic_string`
 
 ---
 
+### Member types
+
+| Name                     | Definition                                       |
+|--------------------------|--------------------------------------------------|
+| `string_type`            | `std::basic_string<CharT, Traits, Allocator>`    |
+| `traits_type`            | `typename string_type::traits_type`              |
+| `value_type`             | `typename string_type::value_type`               |
+| `allocator_type`         | `typename string_type::allocator_type`           |
+| `size_type`              | `typename string_type::size_type`                |
+| `difference_type`        | `typename string_type::difference_type`          |
+| `reference`              | `typename string_type::reference`                |
+| `const_reference`        | `typename string_type::const_reference`          |
+| `pointer`                | `typename string_type::pointer`                  |
+| `const_pointer`          | `typename string_type::const_pointer`            |
+| `iterator`               | `typename string_type::iterator`                 |
+| `const_iterator`         | `typename string_type::const_iterator`           |
+| `reverse_iterator`       | `typename string_type::reverse_iterator`         |
+| `const_reverse_iterator` | `typename string_type::const_reverse_iterator`   |
+
 ### Member functions
+
+#### Constructors
+
+| Signature                                | Brief Description                |
+|------------------------------------------|----------------------------------|
+| `basic_string(const string_type& other)` | Copy conversion constructor.     |
+| `basic_string(string_type&& other)`      | Move conversion constructor.     |
+
+#### Transformations
 
 | Name                                    | Return type                 | Brief Description                                                  |
 |-----------------------------------------|-----------------------------|--------------------------------------------------------------------|
